@@ -1,3 +1,4 @@
+import 'package:bookly_app/Features/home/presentation/views/widget/book_rating.dart';
 import 'package:bookly_app/constans.dart';
 import 'package:bookly_app/core/utils/asset_data.dart';
 import 'package:bookly_app/core/utils/styles.dart';
@@ -28,41 +29,46 @@ class BestSellerListViewItem extends StatelessWidget {
           const SizedBox(
             width: 30,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Text(
-                  'Harry Poter and the Globet of fire',
-                  maxLines: 2,
-                  //لو الكلام هيزيد عن سطرين هيبقي في نقط كده في اخر السطر التاني
-                  overflow: TextOverflow.ellipsis,
-                  style: Styles.textStyle20.copyWith(
-                    fontFamily: kGtSectraFine,
+          // خليتها expanded عشان اعرف اعمل مساحه بين السعر والتقييم
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(
+                    'Harry Poter and the Globet of fire',
+                    maxLines: 2,
+                    //لو الكلام هيزيد عن سطرين هيبقي في نقط كده في اخر السطر التاني
+                    overflow: TextOverflow.ellipsis,
+                    style: Styles.textStyle20.copyWith(
+                      fontFamily: kGtSectraFine,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                height: 3,
-              ),
-              const Text(
-                'J.k .Rowling',
-                style: Styles.textStyle14,
-              ),
-              const SizedBox(
-                height: 3,
-              ),
-              Row(
-                children: [
-                  Text(
-                    '\$19.99',
-                    style: Styles.textStyle20
-                        .copyWith(fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-            ],
+                const SizedBox(
+                  height: 3,
+                ),
+                const Text(
+                  'J.k .Rowling',
+                  style: Styles.textStyle14,
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '\$19.99',
+                      style: Styles.textStyle20
+                          .copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const BookRating(),
+                  ],
+                ),
+              ],
+            ),
           ),
         ],
       ),
