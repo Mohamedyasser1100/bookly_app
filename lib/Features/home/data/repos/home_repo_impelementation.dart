@@ -3,6 +3,7 @@ import 'package:bookly_app/Features/home/data/repos/home_repo.dart';
 import 'package:bookly_app/core/errors/failure.dart';
 import 'package:bookly_app/core/utils/api_service.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 
 class HomeRepoImpelementation implements HomeRepo {
   @override
@@ -19,8 +20,12 @@ class HomeRepoImpelementation implements HomeRepo {
         Books.add(BookModel.fromJson(item));
       }
       return right(Books);
-    } on Exception catch (e) {
-      return left(ServerFailure());
+    } catch (e) {
+      if (e is DioError) {
+        return left(ServerFailure.fromDioError(e));
+      }
+      // لو المشكله مش جايه من ال dioerror
+      return left(ServerFailure(e.toString()));
     }
   }
 
