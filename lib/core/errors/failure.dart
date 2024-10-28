@@ -41,9 +41,10 @@ class ServerFailure extends Failure {
         return ServerFailure('Opps there was an error , please try again');
     }
   }
-// علي حسب الrequest اللي جاي هيقولك المشكله فين
+// علي حسب الrequest اللي جاي هيقولك المشكله منين
   factory ServerFailure.fromResponse(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+      // هيعرض ال message اللي جايه من error في ال response بتاع ال postman
       return ServerFailure(response['error']['message']);
     } else if (statusCode == 404) {
       return ServerFailure('Your requst not found , please try again');
