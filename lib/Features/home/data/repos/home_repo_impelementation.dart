@@ -15,11 +15,11 @@ class HomeRepoImpelementation implements HomeRepo {
       var data = await apiService.get(
           endPoint:
               'volumes?q=subject:programming&Fiitering=free-ebooks&Sorting=newest');
-      List<BookModel> Books = [];
+      List<BookModel> books = [];
       for (var item in data['items']) {
-        Books.add(BookModel.fromJson(item));
+        books.add(BookModel.fromJson(item));
       }
-      return right(Books);
+      return right(books);
     } catch (e) {
       if (e is DioError) {
         return left(ServerFailure.fromDioError(e));
@@ -34,11 +34,11 @@ class HomeRepoImpelementation implements HomeRepo {
     try {
       var data = await apiService.get(
           endPoint: 'volumes?q=subject:programming&Fiitering=free-ebooks');
-      List<BookModel> Books = [];
+      List<BookModel> books = [];
       for (var item in data['items']) {
-        Books.add(BookModel.fromJson(item));
+        books.add(BookModel.fromJson(item));
       }
-      return right(Books);
+      return right(books);
     } catch (e) {
       if (e is DioError) {
         return left(ServerFailure.fromDioError(e));

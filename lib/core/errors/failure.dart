@@ -9,8 +9,8 @@ abstract class Failure {
 class ServerFailure extends Failure {
   ServerFailure(super.errMessage);
 
-  factory ServerFailure.fromDioError(DioError dioError) {
-    switch (dioError.type) {
+  factory ServerFailure.fromDioError(DioException dioexp) {
+    switch (dioexp.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure('Connection Timeout With Apiserver');
 
@@ -26,7 +26,7 @@ class ServerFailure extends Failure {
 // ده بتاع ال factory اللي تحت
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioError.response!.statusCode!, dioError.response!.data);
+            dioexp.response!.statusCode!, dioexp.response!.data);
 
       case DioExceptionType.cancel:
         return ServerFailure('Requset to Apiserver was cancel');

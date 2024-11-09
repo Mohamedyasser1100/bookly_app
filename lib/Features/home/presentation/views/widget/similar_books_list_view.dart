@@ -15,7 +15,7 @@ class SimilarBooksListView extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 5),
             child: CustomeBookImage(
               imageUrl:
-                  'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pexels.com%2Fphoto%2Fa-photography-of-a-man-standing-on-a-tree-3680219%2F&psig=AOvVaw0-6Hi9cwEzXaABpgRyf7SR&ust=1730912332995000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCOjZwYrVxYkDFQAAAAAdAAAAABAE',
+                  'https://www.google.com/imgres?q=photo%20books&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F719WTtlFxTL._AC_UF894%2C1000_QL80_.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.eg%2F-%2Fen%2FNvhai-Library-Painting-Reading-Artwork%2Fdp%2FB09CM6YJYS&docid=YXVHj4VccIjSLM&tbnid=kigcwD1xAcyzVM&vet=12ahUKEwjc9vu-pc-JAxXiQEEAHVedC-wQM3oECH8QAA..i&w=846&h=1000&hcb=2&ved=2ahUKEwjc9vu-pc-JAxXiQEEAHVedC-wQM3oECH8QAA',
             ),
           );
         },
